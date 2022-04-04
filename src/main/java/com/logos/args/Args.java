@@ -30,10 +30,6 @@ public class Args {
     }
 
     private static Object parseArgs(List<String> argumentList, Parameter parameter) {
-        return getParser(parameter).parser(argumentList, parameter.getAnnotation(Option.class).value());
-    }
-
-    private static OptionParser getParser(Parameter parameter) {
-        return PARSER_MAP.get(parameter.getType());
+        return PARSER_MAP.get(parameter.getType()).parser(argumentList, parameter.getAnnotation(Option.class).value());
     }
 }
